@@ -8,13 +8,13 @@ html {
      height: 100%; /* makes sure our HTML takes up 100% of the browser window */
      font-size: 100%;
  }
- 
+
 body {
      font-family: 'Open Sans'; /* sets our font to the "Open Sans" typeface */
      color: white;             /* sets the text color to white */
      min-height: 100%;         /* says the height of the body must be, at minimum, 100% of the window */
  }
- 
+
 .navbar {
      position: relative;
      padding: 0.5rem;
@@ -23,9 +23,9 @@ body {
      /* #2 */
      z-index: 1;
  }
- 
+
 .navbar .logo {
-     position: relative; 
+     position: relative;
      left: 2rem;
      cursor: pointer; /* produces the finger-pointer icon when you hover over the logo */
  }
@@ -63,23 +63,27 @@ body {
 .links-container .navbar-link:hover {
     color: rgb(233,50,117);
 }
- 
+
 
 .container {
     margin: 0 auto;
     max-width: 64rem;
 }
 
+.container.narrow {
+    max-width: 56rem;
+}
+
 /* Medium and small screens (640px) */
 @media (min-width: 640px) {
     html { font-size: 112%;  }
-    
+
     .column {
         float: left;
         padding-left: 1rem;
         padding-right: 1rem;
     }
-    
+
     .column.full { width: 100%; }
     .column.two-thirds { width: 66.7%; }
     .column.half { width: 50%; }
@@ -96,15 +100,15 @@ body {
 .clearfix::before,
 
 .clearfix::after {
-    
+
     content: " ";
-    
+
     display: table;
 }
 
 
 .clearfix::after {
-    
+
     clear: both;
-    
+
 }

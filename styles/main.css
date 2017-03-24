@@ -33,7 +33,7 @@ body {
 .navbar .links-container {
     display: table;
     position: absolute;
-    top: o;
+    top: 0;
     right: 0;
     height: 100px;
     color: white;

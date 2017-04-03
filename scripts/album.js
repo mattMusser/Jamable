@@ -35,7 +35,7 @@ var albumDaVinci = {
     title: 'Works of Genius',
     artist: 'Leonardo da Vinci',
     label: 'High Renaissance',
-    year: '1490'
+    year: '1490',
     albumArtUrl: 'assets/images/album_covers/15.png',
     songs: [
       { title: "Don't Smile, please", duration: '2:02' },

@@ -4,7 +4,7 @@ var albumPicasso = {
     artist: 'Pablo Picasso',
     label: 'Cubism',
     year: '1881',
-    albumArtUrl: 'assets/images/album_covers/01.png',
+    albumArtUrl: 'assets\images\album_covers\01.png',
     songs: [
       { title: 'Blue', duration: '4:26' },
       { title: 'Green', duration: '3:14' },
@@ -26,10 +26,25 @@ var albumMarconi = {
       { title: 'Ring, ring, ring', duration: '5:01' },
       { title: 'Fits in your pocket', duration: '3:21' },
       { title: 'Can you hear me now?', duration: '3:14' },
-      { title: 'Wrong phone number' }, duration: '2:15' ]
+      { title: 'Wrong phone number', duration: '2:15' }
     ]
 };
 
+//Third Example Album
+var albumDaVinci = {
+    title: 'Works of Genius',
+    artist: 'Leonardo da Vinci',
+    label: 'High Renaissance',
+    year: '1490'
+    albumArtUrl: 'assets/images/album_covers/15.png',
+    songs: [
+      { title: "Don't Smile, please", duration: '2:02' },
+      { title: 'The Vitruvian', duration: '3:15' },
+      { title: 'Self Portrait', duration: '6:02' },
+      { title: 'Cowabunga?', duration: '3:11' },
+      { title: 'Renaissance Man', duration: '5:00' }
+    ]
+};
 var creatSongRow = function(songNumber, songName, songLength) {
     var template =
         '<tr class="album-view-song-item">'
@@ -64,3 +79,5 @@ var setCurrentAlbum = function(album) {
 window.onload = function() {
     setCurrentAlbum(albumPicasso);
 };
+
+document.getElementsByClassName('album-cover-art').addEventListener('click', setCurrentAlbum);

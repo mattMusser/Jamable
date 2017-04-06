@@ -15,14 +15,14 @@ var animatePoints = function(points) {
 window.onload = function() {
      //Automatically animate the points on a tall screen whree scrolling can't trigger the animation
     if (window.innerHeight > 950) {
-        animatePoints(pointsArray);
+        animatePoints(points);
     }
 
     var sellingPoints = document.getElementsByClassName('selling-points')[0];
     var scrollDistance = sellingPoints.getBoundingClientRect().top - window.innerHeight + 200;
     window.addEventListener('scroll', function(event) {
         if (document.documentElement.scrollTop || document.body.scrollTop >= scrollDistance) {
-             animatePoints(pointsArray);
+             animatePoints(points);
         }
     });
 }

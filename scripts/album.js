@@ -15,11 +15,11 @@ var albumPicasso = {
 };
 
 // Another Example Album
-var albumMarconi = {
+var albumBell = {
     tite: 'The Telephone',
-    artist: 'Guglielmo Marconi',
-    lablel: 'EM',
-    year: '1909',
+    artist: 'Alexander Graham Bell',
+    label: 'Telecommunication',
+    year: '1876',
     albumArtUrl: 'assets/images/album_covers/20.png',
     songs: [
       { title: 'Hello, Operator?', duration: '1:01' },
@@ -45,7 +45,8 @@ var albumDaVinci = {
       { title: 'Renaissance Man', duration: '5:00' }
     ]
 };
-var creatSongRow = function(songNumber, songName, songLength) {
+
+var createSongRow = function(songNumber, songName, songLength) {
     var template =
         '<tr class="album-view-song-item">'
       + '<td class="song-item-number">' + songNumber + '</td>'
@@ -71,13 +72,29 @@ var setCurrentAlbum = function(album) {
 
     albumSongList.innerHTML = '';
 
-    for (var i = 0; i < album.songs.length; i++) {
+    for(var i = 0; i < album.songs.length; i++) {
         albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
     }
 };
 
+var albums = [
+    albumPicasso,
+    albumBell,
+    albumDaVinci
+];
+
+//Load the first album, Picasso, by default.
+var currentAlbumIndex = 0;
+
 window.onload = function() {
-    setCurrentAlbum(albumPicasso);
+    setCurrentAlbum(albums[currentAlbumIndex]);
 };
 
-document.getElementsByClassName('album-cover-art')[0].addEventListener('click', setCurrentAlbum);
+document.getElementsByClassName('album-cover-art')[0].addEventListener('click', function(event) {
+    currentAlbumIndex++;
+    if(currentAlbumIndex >= albums.length) {
+       currentAlbumIndex = 0;
+    }
+
+  setCurrentAlbum(albums[currentAlbumIndex]);
+});

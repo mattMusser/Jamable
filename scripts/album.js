@@ -76,22 +76,24 @@ var setCurrentAlbum = function(album) {
     }
 };
 
-var eventAlbum = function() {
-    setCurrentAlbum(albumBell);
-    document.getElementsByClassName('album-cover-art')[0].addEventListener('click', thirdEventAlbum);
-};
+var albums = [
+    albumPicasso,
+    albumBell,
+    albumDaVinci
+];
 
-var thirdEventAlbum = function() {
-    setCurrentAlbum(albumDaVinci);
-    document.getElementsByClassName('album-cover-art')[0].addEventListener('click', firstEventAlbum);
-};
-
-var firstEventAlbum = function() {
-    setCurrentAlbum(albumPicasso);
-};
+//Load the first album, Picasso, by default.
+var currentAlbumIndex = 0;
 
 window.onload = function() {
-    setCurrentAlbum(albumPicasso);
+    setCurrentAlbum(albums[currentAlbumIndex]);
 };
 
-document.getElementsByClassName('album-cover-art')[0].addEventListener('click', eventAlbum);
+document.getElementsByClassName('album-cover-art')[0].addEventListener('click', function(event) {
+    currentAlbumIndex++;
+    if(currentAlbumIndex >= albums.length) {
+       currentAlbumIndex = 0;
+    }
+
+  setCurrentAlbum(albums[currentAlbumIndex]);
+});

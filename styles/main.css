@@ -65,13 +65,10 @@ body {
     color: rgb(233,50,117);
 }
 
-<<<<<<< HEAD
-=======
 .links-container .navbar-link:active {
   color: rgb(233, 50, 117);
   background-color: white;
 }
->>>>>>> assignment-5-collectionview
 
 .container {
     margin: 0 auto;

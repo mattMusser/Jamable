@@ -16,7 +16,7 @@ var albumPicasso = {
 
 // Another Example Album
 var albumBell = {
-    tite: 'The Telephone',
+    title: 'The Telephone',
     artist: 'Alexander Graham Bell',
     label: 'Telecommunication',
     year: '1876',

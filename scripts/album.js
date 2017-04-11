@@ -4,7 +4,7 @@ var albumPicasso = {
     artist: 'Pablo Picasso',
     label: 'Cubism',
     year: '1881',
-    albumArtUrl: 'assets\images\album_covers\01.png',
+    albumArtUrl: 'assets/images/album_covers/01.png',
     songs: [
       { title: 'Blue', duration: '4:26' },
       { title: 'Green', duration: '3:14' },
@@ -16,7 +16,7 @@ var albumPicasso = {
 
 // Another Example Album
 var albumBell = {
-    tite: 'The Telephone',
+    title: 'The Telephone',
     artist: 'Alexander Graham Bell',
     label: 'Telecommunication',
     year: '1876',
@@ -98,20 +98,19 @@ window.onload = function() {
             event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
         }
     });
-};
 
-for (var i = 0; i < songRows.length; i++) {
-    songRows[i].addEventListener('mouseleave', function(event) {
-        
-        this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
-    });
-}
-
-document.getElementsByClassName('album-cover-art')[0].addEventListener('click', function(event) {
-    currentAlbumIndex++;
-    if(currentAlbumIndex >= albums.length) {
-       currentAlbumIndex = 0;
+    for (var i = 0; i < songRows.length; i++) {
+        songRows[i].addEventListener('mouseleave', function(event) {
+            this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
+        });
     }
 
-  setCurrentAlbum(albums[currentAlbumIndex]);
-});
+    document.getElementsByClassName('album-cover-art')[0].addEventListener('click', function(event) {
+        currentAlbumIndex++;
+        if(currentAlbumIndex >= albums.length) {
+           currentAlbumIndex = 0;
+        }
+
+      setCurrentAlbum(albums[currentAlbumIndex]);
+    });
+};

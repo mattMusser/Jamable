@@ -98,20 +98,19 @@ window.onload = function() {
             event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
         }
     });
-};
 
-for (var i = 0; i < songRows.length; i++) {
-    songRows[i].addEventListener('mouseleave', function(event) {
-
-        this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
-    });
-}
-
-document.getElementsByClassName('album-cover-art')[0].addEventListener('click', function(event) {
-    currentAlbumIndex++;
-    if(currentAlbumIndex >= albums.length) {
-       currentAlbumIndex = 0;
+    for (var i = 0; i < songRows.length; i++) {
+        songRows[i].addEventListener('mouseleave', function(event) {
+            this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
+        });
     }
 
-  setCurrentAlbum(albums[currentAlbumIndex]);
-});
+    document.getElementsByClassName('album-cover-art')[0].addEventListener('click', function(event) {
+        currentAlbumIndex++;
+        if(currentAlbumIndex >= albums.length) {
+           currentAlbumIndex = 0;
+        }
+
+      setCurrentAlbum(albums[currentAlbumIndex]);
+    });
+};

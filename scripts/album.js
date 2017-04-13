@@ -77,6 +77,25 @@ var setCurrentAlbum = function(album) {
     }
 };
 
+var findPartentByClassName = function(element, targetClass) {
+     //Use classList to access an element's classes
+     //All HTML Elements have a parentElement property
+    if(element) {
+       var currentParent = element.parentElement;
+       while (currentParent.className !== targetClass && currentParent.className !== null) {
+           currentParent = currentParent.parentElement;
+           console.log(currentParent);
+       }
+       return currentParent;
+    }
+}
+
+var getSongItem = function(element, className) {
+    switch(element.className) {
+        case
+    }
+}
+
 var albums = [
     albumPicasso,
     albumBell,

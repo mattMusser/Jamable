@@ -107,7 +107,7 @@ var getSongItem = function(element) {
 
 var clickHandler = function(targetElement) {
     var songItem = getSongItem(targetElement);
-    if (currentPlayingSong === null) {
+    if (currentlyPlayingSong === null) {
         songItem.innerHTML = pauseButtonTemplate;
         currentlyPlayingSong = songItem.getAttribute('data-song-number');
     } else if (currentlyPlayingSong === songItem.getAttribute('data-song-number')) {
@@ -148,7 +148,7 @@ window.onload = function() {
 
             if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
                 songItem.innerHTML = playButtonTemplate;
-            }
+           }
         }
     });
 

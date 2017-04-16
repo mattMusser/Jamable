@@ -30,21 +30,7 @@ var albumBell = {
     ]
 };
 
-//Third Example Album
-var albumDaVinci = {
-    title: 'Works of Genius',
-    artist: 'Leonardo da Vinci',
-    label: 'High Renaissance',
-    year: '1490',
-    albumArtUrl: 'assets/images/album_covers/15.png',
-    songs: [
-      { title: "Don't Smile, please", duration: '2:02' },
-      { title: 'The Vitruvian', duration: '3:15' },
-      { title: 'Self Portrait', duration: '6:02' },
-      { title: 'Cowabunga?', duration: '3:11' },
-      { title: 'Renaissance Man', duration: '5:00' }
-    ]
-};
+
 
 var createSongRow = function(songNumber, songName, songLength) {
     var template =
@@ -121,11 +107,7 @@ var clickHandler = function(targetElement) {
      }
 };
 
-var albums = [
-    albumPicasso,
-    albumBell,
-    albumDaVinci
-];
+
 
 //Load the first album, Picasso, by default.
 var currentAlbumIndex = 0;
@@ -139,7 +121,8 @@ var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause">
 var currentlyPlayingSong = null;
 
 window.onload = function() {
-    setCurrentAlbum(albums[currentAlbumIndex]);
+    //setCurrentAlbum(albums[currentAlbumIndex]);
+    setCurrentAlbum(albumPicasso);
     songListContainer.addEventListener('mouseover', function(event) {
         // Only target individual song rows during event delegation.
         if (event.target.parentElement.className === 'album-view-song-item') {
@@ -167,12 +150,4 @@ window.onload = function() {
         });
     }
 
-    document.getElementsByClassName('album-cover-art')[0].addEventListener('click', function(event) {
-        currentAlbumIndex++;
-        if(currentAlbumIndex >= albums.length) {
-           currentAlbumIndex = 0;
-        }
-
-      setCurrentAlbum(albums[currentAlbumIndex]);
-    });
 };

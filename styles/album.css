@@ -4,6 +4,7 @@ body.album {
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
+    padding-bottom: 200px;
 }
 
 .album-cover-art {
@@ -80,7 +81,7 @@ body.album {
  .album-song-button span {
     line-height: 28px;
  }
- 
+
 @media (max-width: 640px) and (min-width: 320px) {
     .album-view-details {
         text-align: center;

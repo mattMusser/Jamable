@@ -24,4 +24,4 @@ $(window).load(function() {
           var $newThumbnail = buildCollectionItemTemplate();
           $collectionContainer.append($newThumbnail);
       }
-  }
+  });

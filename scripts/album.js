@@ -19,20 +19,23 @@ var createSongRow = function(songNumber, songName, songLength) {
         if (currentlyPlayingSongNumber !== songNumber) {
             //Switch from Play -> Pause button to indicate new song is playing
             $(this).html(pauseButtonTemplate);
-            currentlyPlayingSongNumber = songNumber;
-            currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+            //currentlyPlayingSongNumber = songNumber;
+            //currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+            setSong(songNumber);
             updatePlayerBarSong();
         } else if (currentlyPlayingSongNumber === songNumber) {
             //Switch from Pause -> Play button to pause currently playing song.
             $(this).html(playButtonTemplate);
             $('.main-controls .play-pause').html(playerBarPlayButton);
-            currentlyPlayingSongNumber = null;
-            currentSongFromAlbum = null;
+            //currentlyPlayingSongNumber = null;
+            //currentSongFromAlbum = null;
+            setSong(songNumber);
         }
     };
 
     var onHover = function(event) {
-      var songNumberCell = $(this).find('.song-item-number');
+      //var songNumberCell = $(this).find('.song-item-number');
+      var getSongNumberCell();
       var songNumber = parseInt(songNumberCell.attr('data-song-number'));
 
       if (songNumber !== currentlyPlayingSongNumber) {
@@ -41,7 +44,8 @@ var createSongRow = function(songNumber, songName, songLength) {
     };
 
     var offHover = function(event) {
-        var songNumberCell = $(this).find('.song-item-number');
+        //var songNumberCell = $(this).find('.song-item-number');
+        var getSongNumberCell(songNumber);
         var songNumber = parseInt(songNumberCell.attr('data-song-number'));
 
         if (songNumber !== currentlyPlayingSongNumber) {
@@ -55,6 +59,19 @@ var createSongRow = function(songNumber, songName, songLength) {
     $row.hover(onHover, offHover);
     return $row;
 };
+
+// Assigns currentlyPlayingSongNumber and curretSongFromAlbum a new value based on the new song number.
+var setSong = function(songNumber) {
+    currentlyPlayingSongNumber = songNumber;
+    currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+}
+
+var getSongNumberCell = function(number){
+    // Return the song number element that corresponds to that song number
+    songNumberCell = $(this).find('.song-item-number');
+
+
+}
 
 var setCurrentAlbum = function(album) {
     currentAlbum = album;

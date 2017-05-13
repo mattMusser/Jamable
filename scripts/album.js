@@ -193,26 +193,6 @@ var setupSeekBars = function() {
     });
 };
 
-var setCurrenttimeInPlayBar = function(currentTime) { //#1
-    //Sets the text of the element with the .current-time class to the current time in the song
-
-    //Add the method to updateSeekBarWhileSongPlays() so the current time updates with song playback
-};
-
-var setTotalTimeInPlayerBar = function(totalTime) { //#2
-    //Sets the text of the element with the .total-time class to the length of the song.
-
-    //Add the method to updatePlayerBarSong() so the total time is set when a song first plays.
-};
-
-var filterTimeCode = function(timeInSeconds) { //#3
-    //Uses the parseFloat() method to get the seconds in number form
-
-    //Store variables for whole seconds and whole minutes
-
-    //Return time in the formate X:XX
-};
-
 var trackIndex = function(album, song) {
     return album.songs.indexOf(song);
 };
@@ -276,6 +256,13 @@ var previousSong = function () {
     $previousSongNumberCell.html(pauseButtonTemplate);
     $lastSongNumberCell.html(lastSongNumber);
 
+};
+
+var updatePlayerBarSong = function() {
+    $('.currently-playing .song-name').text(currentSongFromAlbum.title);
+    $('.currently-playing .artist-name').text(currentAlbum.artist);
+    $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
+    $('.main-controls .play-pause').html(playerBarPauseButton);
 };
 
 var updatePlayerBarSong = function() {

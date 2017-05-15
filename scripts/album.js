@@ -193,7 +193,7 @@ var setupSeekBars = function() {
     });
 };
 
-var setCurrenttimeInPlayBar = function(currentTime) { //#1
+var setCurrenttimeInPlayBar = function(currentTime) { // #1
     //Sets the text of the element with the .current-time class to the current time in the song
 
     //Add the method to updateSeekBarWhileSongPlays() so the current time updates with song playback

@@ -3,7 +3,7 @@ var createSongRow = function (songNumber, songName, songLength) {
         '<tr class="album-view-song-item">'
     + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
     + '  <td class="song-item-title">' + songName + '</td>'
-    + '  <td class="song-item-duration">' + songLength + '</td>'
+    + '  <td class="song-item-duration">' + filterTimeCode(songLength) + '</td>'
     + '</tr>'
     ;
 
@@ -67,7 +67,7 @@ var createSongRow = function (songNumber, songName, songLength) {
             songNumberCell.html(songNumber);
         }
 
-        console.log("songNumber type is " + typeof songNumber + "\n and currentlyPlayingSongNumber type is " + typeof currentlyPlayingSongNumber);
+
     };
 
     $row.find('.song-item-number').click(clickHandler);
@@ -137,6 +137,8 @@ var updateSeekBarWhileSongPlays = function () {
             var $seekBar = $('.seek-control .seek-bar');
 
             updateSeekPercentage($seekBar, seekBarFillRatio);
+            setCurrentTimeInPlayerBar();
+            setTotalTimeInPlayerBar();
         });
     }
 };
@@ -193,24 +195,26 @@ var setupSeekBars = function () {
     });
 };
 
-var setCurrenttimeInPlayBar = function (currentTime) { // #1
+var setCurrentTimeInPlayerBar = function (currentTime) { //#1
     //Sets the text of the element with the .current-time class to the current time in the song
-
+    $('.current-time').text(currentTime);
     //Add the method to updateSeekBarWhileSongPlays() so the current time updates with song playback
  };
 
  var setTotalTimeInPlayerBar = function (totalTime) { //#2
      //Sets the text of the element with the .total-time class to the length of the song.
-
+     $('.total-time').text(totalTime);
      //Add the method to updatePlayerBarSong() so the total time is set when a song first plays.
  };
 
  var filterTimeCode = function (timeInSeconds) { //#3
      //Uses the parseFloat() method to get the seconds in number form
-
+     var getSeconds = parseFloat(currentSoundFile.getTime());
      //Store variables for whole seconds and whole minutes
-
-     //Return time in the formate X:XX
+     var wholeSeconds = Math.floor(getSeconds);
+     var wholeMinutes = wholeSeconds % 60;
+     //Return time in the format X:XX
+     return  wholeMinutes + ":" + wholeSeconds;
  };
 
 var trackIndex = function (album, song) {

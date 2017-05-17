@@ -212,8 +212,9 @@ var setCurrentTimeInPlayerBar = function (currentTime) { //#1
      //Store variables for whole seconds and whole minutes
      var wholeSeconds = Math.floor(getSeconds);
      var wholeMinutes = wholeSeconds % 60;
+     var timeFormat = wholeMinutes + ":" + wholeSeconds;
      //Return time in the format X:XX
-     return  wholeMinutes + ":" + wholeSeconds;
+     return  timeFormat;
  };
 
 var trackIndex = function (album, song) {

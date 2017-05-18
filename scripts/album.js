@@ -211,9 +211,11 @@ var setCurrentTimeInPlayerBar = function (currentTime) { //#1
      var getSeconds = parseFloat(timeInSeconds);
      //Store variables for whole seconds and whole minutes
      var wholeSeconds = Math.floor(getSeconds);
-     var fracturedMinutes= wholeSeconds / 60;
+     var fracturedMinutes = wholeSeconds / 60;
      var wholeMinutes = Math.floor(fracturedMinutes);
-     var timeFormat = wholeMinutes + ":" + wholeSeconds;
+     var leftOverSeconds = 60 * wholeMinutes;
+     var roundedWholeSeconds = wholeSeconds - leftOverSeconds;
+     var timeFormat = wholeMinutes + ":" + roundedWholeSeconds;
      //Return time in the format X:XX
      return  timeFormat;
  };

@@ -3,7 +3,7 @@ var createSongRow = function (songNumber, songName, songLength) {
         '<tr class="album-view-song-item">'
     + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
     + '  <td class="song-item-title">' + songName + '</td>'
-    + '  <td class="song-item-duration">' + songLength + '</td>'
+    + '  <td class="song-item-duration">' + filterTimeCode(songLength) + '</td>'
     + '</tr>'
     ;
 
@@ -208,9 +208,9 @@ var setCurrentTimeInPlayerBar = function (currentTime) { //#1
 
  var filterTimeCode = function (timeInSeconds) { //#3
      //Uses the parseFloat() method to get the seconds in number form
-     var getSeconds = parseFloat(currentSoundFile.getTime());
+     var getSeconds = parseFloat(timeInSeconds);
      //Store variables for whole seconds and whole minutes
-     var wholeSeconds = Math.floor(getSeconds);
+     var wholeSeconds = Math.floor(timeInSeconds);
      var wholeMinutes = wholeSeconds % 60;
      var timeFormat = wholeMinutes + ":" + wholeSeconds;
      //Return time in the format X:XX

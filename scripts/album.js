@@ -215,7 +215,8 @@ var setCurrentTimeInPlayerBar = function (currentTime) { //#1
      var wholeMinutes = Math.floor(fracturedMinutes);
      var removedSeconds = 60 * wholeMinutes;
      var leftOverSeconds = wholeSeconds - removedSeconds;
-     var timeFormat = wholeMinutes + ":" + leftOverSeconds;
+     var timeFormat = wholeMinutes + ":" + (leftOverSeconds < 10 ? '0' : '') + leftOverSeconds;
+
      //Return time in the format X:XX
      return  timeFormat;
  };

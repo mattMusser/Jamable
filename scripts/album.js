@@ -113,12 +113,8 @@ var getSongNumberCell = function (number) {
      return $('.song-item-number[data-song-number="' + currentlyPlayingSongNumber + '"]');
 }
 
-<<<<<<< HEAD
-
-var setCurrentAlbum = function(album) {
-=======
 var setCurrentAlbum = function (album) {
->>>>>>> assignment-21-jQuery-SeekBars
+
     currentAlbum = album;
     var $albumTitle = $('.album-view-title');
     var $albumArtist = $('.album-view-artist');

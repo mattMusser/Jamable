@@ -1,8 +1,8 @@
-# Bloc Jams
+# Jamable
 ---
 ### About the App
 
-Bloc Jams is a partial replica of Spotify. The app was constructed using HTML, CSS, JavaScript, DOM Scripting, jQuery & Buzz Library.
+Jamable is a partial replica of Spotify. The app was constructed using HTML, CSS, JavaScript, DOM Scripting, jQuery & Buzz Library.
 
 ### Demo
 
